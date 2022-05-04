@@ -1,5 +1,6 @@
 package br.com.letscode.raminelli.calculadora;
 
+
 public class Calculadora {
 
     public double somar(double num1, double num2) {
@@ -11,6 +12,14 @@ public class Calculadora {
     }
 
     public double dividir(double valor1, double valor2) {
-        return valor1/valor2;
+        if (valor2 == 0) {
+            throw new IllegalArgumentException("Valor2 nao pode ser zero");
+        }
+        return valor1 / valor2;
+    }
+
+
+    public double multiplicar(double valor1, double valor2) {
+        return valor1 * valor2;
     }
 }

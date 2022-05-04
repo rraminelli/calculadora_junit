@@ -1,11 +1,10 @@
 package br.com.letscode.raminelli.calculadora;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-public class Testes {
+import static org.junit.jupiter.api.Assertions.*;
+
+class Testes {
 
     static Calculadora calculadora;
 
@@ -15,23 +14,49 @@ public class Testes {
     }
 
     @Test
+    @DisplayName("Teste somar - Calculadora")
     void testeSomar() {
         double resultado = calculadora.somar(10, 15);
-        Assertions.assertEquals(25, resultado);
+        assertEquals(25, resultado);
     }
 
     @Test
-    @Disabled
+    @DisplayName("Teste subtrair - Calculadora")
     void testeSubtrair() {
         double resultado = calculadora.subtrair(10, 5);
-        Assertions.assertEquals(5, resultado);
+        assertEquals(5, resultado);
     }
 
     @Test
+    @DisplayName("Teste dividir - Calculadora")
     void testeDividir() {
         double resultado = calculadora.dividir(10, 2);
-        Assertions.assertEquals(5, resultado);
+        assertEquals(5, resultado);
     }
 
+    @Test
+    @DisplayName("Teste multiplicar - Calculadora")
+    void testeMultiplicar() {
+        double resultado = calculadora.multiplicar(5, 2);
+        assertEquals(10, resultado);
+    }
+
+    @Test
+    void testeDividirErroDivisaoPorZero() {
+        try {
+            double resultado = calculadora.dividir(10, 0);
+            fail("Falha teste Divisao por zero");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            assertEquals("Valor2 nao pode ser zero",
+                    e.getMessage());
+        }
+    }
+
+    @Test
+    void testeDividirErroDivisaoPorZero2() {
+        assertThrows(IllegalArgumentException.class,
+                () -> calculadora.dividir(5, 0));
+    }
 
 }

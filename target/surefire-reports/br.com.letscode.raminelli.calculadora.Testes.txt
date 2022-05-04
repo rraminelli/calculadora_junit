@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.letscode.raminelli.calculadora.Testes
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.291 s - in br.com.letscode.raminelli.calculadora.Testes
